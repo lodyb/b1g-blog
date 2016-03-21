@@ -18,9 +18,20 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = DB::table('post')
-        ->orderBy('created_at','asc')
-        ->paginate('5');
+        $data = Post::by_date();
+
+        return view('post.index')
+        ->with('posts',$data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function top()
+    {
+        $data = Post::by_votes();
 
         return view('post.index')
         ->with('posts',$data);

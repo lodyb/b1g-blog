@@ -30,13 +30,13 @@ class Post extends Model
     protected $hidden = [
     ];
 
-    public function by_date()
+    public static function by_date()
     {
-        return $this->orderBy('created_at','asc');
+        return Post::orderBy('created_at','desc')->paginate('10');
     }
 
-    public function by_votes()
+    public static function by_votes()
     {
-        return $this->orderBy('votes','desc')->paginate('5');
+        return Post::orderBy('votes','desc')->paginate('10');
     }
 }

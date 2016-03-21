@@ -21,7 +21,7 @@ Route::group(['middleware' => ['web']], function () {
 		'as' => 'postsbyyear', 'uses' => 'PostController@showPost'
 	]);
 	Route::get('/top', [
-		'as' => 'topposts', 'uses' => 'PostController@showTop'
+		'as' => 'topposts', 'uses' => 'PostController@top'
 	]);
 });
 
