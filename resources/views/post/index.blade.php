@@ -1,5 +1,7 @@
 @extends('base')
 
+@section('title', 'Blog')
+
 @section('styles')
 @endsection
 
