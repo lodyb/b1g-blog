@@ -1,34 +1,35 @@
 <?php
 
 Route::group(['middleware' => ['web']], function () {
-	Route::get('/', function () {
-		return 'index';
-	});
-	Route::get('/login', function () {
-		return 'login page';
-	});
-	Route::get('/year/{year}', function () {
-		return 'filter year';
-	});
-	Route::get('/month/{year}/{month}', function () {
-		return 'filter year and month';
-	});
-	Route::get('/tag/{tags}', function () {
-		return 'filter tags';
-	});
-	Route::get('/user/{user}', function () {
-		return 'filter user';
-	});
-	Route::get('/perma/{year}/{month}/{perma}', function () {
-		return 'permalink';
-	});
+	Route::get('/', [
+		'as' => 'index', 'uses' => 'PostController@index'
+	]);
+	Route::auth();
+	Route::get('/year/{year}', [
+		'as' => 'postsbyyear', 'uses' => 'PostController@postsByYear'
+	]);
+	Route::get('/month/{year}/{month}', [
+		'as' => 'postsbymonth', 'uses' => 'PostController@postsByMonth'
+	]);
+	Route::get('/tag/{tags}', [
+		'as' => 'postsbytags', 'uses' => 'PostController@postsByTags'
+	]);
+	Route::get('/user/{user}', [
+		'as' => 'postsbyuser', 'uses' => 'PostController@postsByUser'
+	]);
+	Route::get('/perma/{year}/{month}/{perma}', [
+		'as' => 'postsbyyear', 'uses' => 'PostController@showPost'
+	]);
+	Route::get('/top', [
+		'as' => 'topposts', 'uses' => 'PostController@showTop'
+	]);
 });
 
 Route::group(['prefix' => 'cms', 'middleware' => ['web', 'auth']], function () {
-	Route::get('/', function () {
-		return 'dashboard';
-	});
-	Route::get('/post', function () {
-		return 'post management';
-	});
+	Route::get('/', [
+		'as' => 'cms', 'uses' => 'CMSController@dashboard'
+	]);
+	Route::get('/post', [
+		'as' => 'postmanager', 'uses' => 'CMSController@managePosts'
+	]);
 });
