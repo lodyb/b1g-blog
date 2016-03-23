@@ -1,0 +1,39 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/vagrant/.nvm/versions/node/v5.9.0/bin/node',
+1 verbose cli   '/home/vagrant/.nvm/versions/node/v5.9.0/bin/npm',
+1 verbose cli   'rebuild',
+1 verbose cli   'node-sass' ]
+2 info using npm@3.7.3
+3 info using node@v5.9.0
+4 info readInstalled object
+5 verbose rebuild path, id [ '/home/vagrant/Code/lodyblog/node_modules/node-sass',
+5 verbose rebuild   'node-sass@3.4.2' ]
+6 silly rebuild set [ '/home/vagrant/Code/lodyblog/node_modules/node-sass' ]
+7 info build /home/vagrant/Code/lodyblog/node_modules/node-sass
+8 info lifecycle node-sass@3.4.2~preinstall: node-sass@3.4.2
+9 silly lifecycle node-sass@3.4.2~preinstall: no script for preinstall, continuing
+10 info linkStuff node-sass@3.4.2
+11 silly linkStuff node-sass@3.4.2 has /home/vagrant/Code/lodyblog/node_modules as its parent node_modules
+12 verbose linkBins node-sass@3.4.2
+13 verbose link bins [ { 'node-sass': 'bin/node-sass' },
+13 verbose link bins   '/home/vagrant/Code/lodyblog/node_modules/.bin',
+13 verbose link bins   false ]
+14 verbose linkMans node-sass@3.4.2
+15 verbose rebuildBundles node-sass@3.4.2
+16 silly gentlyRm /home/vagrant/Code/lodyblog/node_modules/.bin/node-sass is being purged
+17 verbose gentlyRm don't care about contents; nuking /home/vagrant/Code/lodyblog/node_modules/.bin/node-sass
+18 verbose stack Error: EPROTO: protocol error, symlink '../node-sass/bin/node-sass' -> '/home/vagrant/Code/lodyblog/node_modules/.bin/node-sass'
+18 verbose stack     at Error (native)
+19 verbose cwd /home/vagrant/Code/lodyblog
+20 error Linux 3.19.0-25-generic
+21 error argv "/home/vagrant/.nvm/versions/node/v5.9.0/bin/node" "/home/vagrant/.nvm/versions/node/v5.9.0/bin/npm" "rebuild" "node-sass"
+22 error node v5.9.0
+23 error npm  v3.7.3
+24 error path ../node-sass/bin/node-sass
+25 error code EPROTO
+26 error errno -71
+27 error syscall symlink
+28 error EPROTO: protocol error, symlink '../node-sass/bin/node-sass' -> '/home/vagrant/Code/lodyblog/node_modules/.bin/node-sass'
+29 error If you need help, you may report this error at:
+29 error     <https://github.com/npm/npm/issues>
+30 verbose exit [ -71, true ]

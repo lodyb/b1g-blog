@@ -5,19 +5,19 @@ Route::group(['middleware' => ['web']], function () {
 		'as' => 'index', 'uses' => 'PostController@index'
 	]);
 	Route::auth();
-	Route::get('/year/{year}', [
+	Route::get('/y/{year}', [
 		'as' => 'postsbyyear', 'uses' => 'PostController@postsByYear'
 	]);
-	Route::get('/month/{year}/{month}', [
+	Route::get('/m/{year}/{month}', [
 		'as' => 'postsbymonth', 'uses' => 'PostController@postsByMonth'
 	]);
-	Route::get('/tag/{tags}', [
+	Route::get('/t/{tags}', [
 		'as' => 'postsbytags', 'uses' => 'PostController@postsByTags'
 	]);
-	Route::get('/user/{user}', [
+	Route::get('/u/{user}', [
 		'as' => 'postsbyuser', 'uses' => 'PostController@postsByUser'
 	]);
-	Route::get('/perma/{year}/{month}/{perma}', [
+	Route::get('/p/{year}/{month}/{perma}', [
 		'as' => 'postsbyyear', 'uses' => 'PostController@showPost'
 	]);
 	Route::get('/top', [

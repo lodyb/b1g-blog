@@ -20,6 +20,11 @@ class PostController extends Controller
     {
         $data = Post::by_date();
 
+        foreach ($data as $value) {
+            $date = new \DateTime($value->created_at);
+            $value->date_string = $date->format('Y/m');
+        }
+
         return view('post.index')
         ->with('posts',$data);
     }
@@ -32,6 +37,11 @@ class PostController extends Controller
     public function top()
     {
         $data = Post::by_votes();
+
+        foreach ($data as $value) {
+            $date = new \DateTime($value->created_at);
+            $value->date_string = $date->format('Y/m');
+        }
 
         return view('post.index')
         ->with('posts',$data);
@@ -64,9 +74,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return view('post');
+    public function showPost($year, $month, $perma)
+    {   
+
+        $record = Post::where('permalink', '=', $perma)->firstOrFail();
+        $date = new \DateTime($record->created_at);
+        $record->date_string = $date->format('Y/m');
+        return view('post.post')
+        ->with('post',$record);
     }
 
     /**

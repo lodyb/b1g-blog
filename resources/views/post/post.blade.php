@@ -6,10 +6,10 @@
 @endsection
 
 @section('content')
-	@foreach ($posts as $post)
+
 		<div class="title-bg" style="background-image:url({{$post->header_image}})">
 		</div>
-		<a class="overlay" href="p/{{$post->date_string}}/{{$post->permalink}}" >
+		<a class="overlay" >
 			<p class="title-date">{{$post->date_string}}</p>
 				<p class="title-link">{{$post->title}}</p>
 			<div class="title-tags">
@@ -18,9 +18,10 @@
 			@endforeach
 			</div>
 		</a>
-	@endforeach
+		<div class="post-content">
+			{!! $post->content !!}
+		</div>
 @endsection
-
 
 @section('scripts')
 @endsection
